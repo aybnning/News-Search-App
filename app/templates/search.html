@@ -1,0 +1,212 @@
+<!-- /* HTML CSS JavaScript citation
+<a href='https://www.w3schools.com/'&'https://codereview.stackexchange.com/'> For HTML/CSS/Javascript reference</a> */ -->
+<!-- Acknowledgement: use some codes in link:
+https://codereview.stackexchange.com/questions/177945/convert-rating-value-to-visible-stars-using-fontawesome-icons
+https://www.w3schools.com/howto/howto_js_scroll_to_top.asp -->
+<html>
+
+<head>
+    <link rel="stylesheet" href="/static/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <button onclick="tFunction()" id="bon" title="Go to top">Top</button>
+    <div class="topcorner" data-category={{categoryList}}>
+        <p>Project Name: {{ name }} </p>
+        <p>Student Name: {{ netid }}
+        </p>
+    </div>
+
+    <!-- <div style="background:url('img/news.jpg');"> -->
+
+    <form class="form-inline global-search" style="text-align: center;" id="search-form">
+        <h1 style="font-size: 60px; font-family:Bodoni MT; color:rgb(37, 19, 19);text-align: center;">
+            Go! News
+        </h1>
+
+        <br><br>
+
+        <div class="form-group">
+            <input id="input-search" type="text" name="search" class="form-control"
+                placeholder="Please enter your search here:" value="{{output_message}}">
+        </div>
+        <button type = 'submit' class="btn btn-info"> Go! </button>
+        <p>
+        <div class = "spacing">
+        </div>
+        <div id="category" class="form-group category" name="category">
+       	    <input type="checkbox" value="ALL" class="ace_auth_id" name="ALL" onchange="myfunction()" > ALL</input>
+            <input type="checkbox" value="POLITICS" class="ace_auth_id" name="POLITICS" onchange="myfunction()"> POLITICS</input>
+            <input type="checkbox" value="ENTERTAINMENT" class="ace_auth_id" name="ENTERTAINMENT" onchange="myfunction()"> ENTERTAINMENT</input>
+            <input type="checkbox" value="WORLD_NEWS" class="ace_auth_id" name="WORLD_NEWS" onchange="myfunction()"> WORLD NEWS</input>
+            <input type="checkbox" value="COMEDY" class="ace_auth_id" name="COMEDY" onchange="myfunction()"> COMEDY</input>
+            <input type="checkbox" value="HEALTHY_LIVING" class="ace_auth_id" name="HEALTHY_LIVING" onchange="myfunction()"> HEALTHY LIVING</input>
+            <input type="checkbox" value="WELLNESS" class="ace_auth_id" name="WELLNESS" onchange="myfunction()"> WELLNESS</input>
+            <input type="checkbox" value="SPORTS" class="ace_auth_id" name="SPORTS" onchange="myfunction()"> SPORTS</input>
+            <input type="checkbox" value="MEDIA" class="ace_auth_id" name="MEDIA" onchange="myfunction()"> MEDIA</input>
+        </div> 
+        </p>
+
+    </form>
+
+ 
+
+        <script>
+        function myfunction(){
+            // var categoryList= $(".topcorner").data("category");
+            // console.log('categoryList' + categoryList);
+            var idArray=[];
+            $(".ace_auth_id").each(function(i){
+                if($(this).is(':checked')){
+                    var id=$(this).val();
+                   // localStorage.setItem(i,id);
+                     idArray.push(id);
+                }
+            });
+            console.log(idArray)
+            localStorage.setItem("idArray",JSON.stringify(idArray))
+}
+
+          $(function (){
+                 var idArrayMemory=JSON.parse(localStorage.getItem("idArray"));
+                for(var a in idArrayMemory){
+                    $("input:checkbox[value="+idArrayMemory[a]+"]").attr("checked","checked")
+       }
+    })
+            /*function filterSelection(filtered_category) {
+            //select category
+            var idArray=[];
+             $(".ace_auth_id").each(function(){
+                if($(this).is(':checked')){
+                var id=$(this).val();
+                localStorage.setItem(i,id);
+                localStorage.setItem("length",i)
+                //idArray.push(id);
+                }
+            });
+
+            
+            var ids = idArray.toString()
+            console.log(ids);
+            var search_text =  $("#input-search").val();
+            var searchData={
+                search: search_text, 
+                filtered_category: idArray 
+            }
+            /*$.POST("/search", JSON.stringify(searchData),function (result){
+            console.log("123")
+            console.log("result")
+
+            },"json");*/
+            /*$.ajax({
+                url: "/search",
+                type: "POST",
+                data: JSON.stringify(searchData),
+                dataType: "json",
+                success: function (data) {
+                console.log("123"+data)
+            }
+        })
+        } */
+
+        </script>
+
+        <form class="form-inline global-search">
+
+            {% if context %}
+            <!-- <h2>{{output_message}}</h2> -->
+
+            <div class="output">
+                {% for d in context.news %}
+                <br>
+                <div class="newstitle">
+                    <a href={{d[1]}}> {{d[0]}} </a>
+                </div>
+                <div class="newsscore">
+                    <p>match-or-not: {{d[2]}} <span class="stars" score={{d[2]}}></span></p>
+                </div>
+                <br>
+                <p></p></br>
+                {% endfor %}
+            </div>
+            <h3>Hot posts in related subreddit</h3>
+            <div class="output">
+
+                {% for d in context.reddit %}
+                <br>
+                <div class="reddit-title">
+                    <a href={{d[2]}}> {{d[0]}} </a>
+                </div>
+                <div class="reddit-text">
+                    <p> {{d[1]}}</p>
+                </div>
+                <br>
+                <p></p></br>
+                {% endfor %}
+                {% endif %}
+            </div>
+        </form>
+
+   
+
+
+    <script>
+        //Get the button
+        var button = document.getElementById("bon");
+
+        //show down
+        window.onscroll = function () { sFunction() };
+
+        function sFunction() {
+            if (document.body.scrollTop > 5 || document.documentElement.scrollTop > 5) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        }
+
+        //to the top
+        function tFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+
+
+    <!-- star -->
+    <script>
+
+        var stars = document.getElementsByClassName("stars");
+        for (var i = 0; i < stars.length; i++) {
+            var star = stars[i];
+            var score = parseFloat(star.getAttribute('score')) * 5;
+            star.innerHTML = getStars(score);
+        }
+
+        function getStars(ranking) {
+
+            // Round to nearest half
+            ranking = Math.round(ranking * 2) / 2;
+            let output = [];
+
+            // Append all the filled whole stars
+            for (var i = ranking; i >= 1; i--)
+                output.push('<i class="fa fa-star" aria-hidden="true" style="color: orange;"></i>&nbsp;');
+
+            // If there is a half a star, append it
+            if (i == .5) output.push('<i class="fa fa-star-half-o" aria-hidden="true" style="color: orange;"></i>&nbsp;');
+
+            // Fill the empty stars
+            for (let i = (5 - ranking); i >= 1; i--)
+                output.push('<i class="fa fa-star-o" aria-hidden="true" style="color: orange;"></i>&nbsp;');
+
+            return output.join('');
+
+        }
+    </script>
+</body>
+
+</html>

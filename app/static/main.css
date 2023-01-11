@@ -1,0 +1,229 @@
+/* Image citation */
+/* <a href='https://www.freepik.com/photos/news'>People photo created by wirestock - www.freepik.com</a> */
+
+/* HTML CSS JavaScript citation
+<a href='https://www.w3schools.com/'&'https://codereview.stackexchange.com/'> For general HTML/CSS/Javascript reference</a> */
+
+
+@media (min-width: 1200px) {
+.container {
+    max-width: 970px;
+}
+}
+@media (min-width:400px){
+.global-search {
+padding: 20px 0;
+text-align:center;
+}
+body {
+padding-top: 15%;
+padding-bottom: 15px;
+background:url('img/news.jpg');
+/* -webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover; */
+background-repeat: no-repeat;
+background-position: center; 
+background-size:100% 100%;
+/* background-repeat: no-repeat;
+background-size: cover; */
+
+/* background:url('img/news.jpg')center center cover no-repeat;  */
+/* background-repeat: no-repeat;
+background-position:center; */
+/* background-size: 100% 100%; */
+
+}
+.global-search {
+text-align:center;
+padding:10px;
+}
+/* text */
+.form-inline .form-group {
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+    position: relative;
+}
+.global-search .form-control {
+width:500px;
+}
+.global-search * {
+display:inline-block;
+margin-bottom:0;
+position: -webkit-sticky; /* Safari */
+position: sticky;
+}
+}
+.output{
+box-shadow: 0px 25px 50px -10px rgba(0,0,0,0.75);
+background-color: #E6E7E1;
+display: block;
+border: 8px solid #f1f0f0;
+text-align: justify;
+margin:10px;
+margin-left:30px;
+margin-right:30px;
+border-radius: 20px;
+opacity: 0.90;
+}
+/* h1{
+    top:10%;
+} */
+h1{
+    text-shadow:5px 3px 3px #867C7C;
+
+    color:brown;
+    font-weight: bold;
+}
+
+h2{
+font-family: didot;
+box-shadow: 0px 25px 50px -10px rgba(0,0,0,0.75);
+background-color: #fff8DC;
+display: block;
+border: 8px solid #f1f0f0;
+text-align: justify;
+margin:10px;
+margin-left:30px;
+margin-right:30px;
+border-radius: 30px;
+opacity: 0.96;
+font-weight: 100;
+}
+h3{
+font-family: didot;
+box-shadow: 0px 25px 50px -10px rgba(0,0,0,0.75);
+margin:10px;
+margin-left:30px;
+margin-right:30px;
+border-radius: 30px;
+font-weight: bold;
+color:#f7f3f3;
+}
+.newstitle {
+    text-align: left;
+    font-size: 20;
+    font-family: didot;
+    margin: 5;
+    box-shadow:
+        0 -1px 3px 0 rgba(218, 217, 217, 0.85),
+        0 3px 3px 0 #ffff,
+        0 2px 2px 1px #f8f7f7,
+        0 3px 3px 0 #c9c8c8 inset,
+        0 -2px 2px 0 #f2f2f2 inset,
+        0 15px 15px 0 rgba(35, 35, 35, 0.12) inset;
+    border-radius:2px;
+    color: brown;
+    
+}
+.newstitle:hover {
+        transform: scale(1.055);
+        filter: blur(0px);
+        opacity: 1.5;
+        box-shadow: 0 8px 10px 0px rgb(0 0 0 / 10%);
+}
+
+.newsscore{
+    text-align: left;
+    font-size: 18;
+    font-family: didot;
+    margin: 10;
+
+}
+.topcorner{
+position:absolute;
+top:1.5%;
+left:2%;
+color:rgb(29, 29, 28);
+}
+.btn{
+background-color: rgb(68, 27, 27);
+border: none;
+/* font-family:Brush Script MT; */
+}
+.step-links a{
+color: #172a49;
+}
+
+#bon {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    font-size: 15px;
+    z-index: 80;
+    border: none;
+    outline: none;
+    background-color: rgb(110, 30, 30);
+    color: white;
+    cursor: pointer;
+    padding: 20px;
+    border-radius: 40px;
+  }
+  
+  #bon:hover {
+    background-color: rgb(78, 230, 230);
+  }
+
+
+  .reddit-title {
+    text-align: left;
+    font-size: 18;
+    font-family: didot;
+    margin: 5;
+    box-shadow:
+        0 -1px 3px 0 rgba(218, 217, 217, 0.85),
+        0 3px 3px 0 #ffff,
+        0 2px 2px 1px #f8f7f7,
+        0 3px 3px 0 #c9c8c8 inset,
+        0 -2px 2px 0 #f2f2f2 inset,
+        0 15px 15px 0 rgba(35, 35, 35, 0.12) inset;
+    border-radius:2px;
+    color: brown;
+    
+}
+.reddit-title:hover {
+    transform: scale(1.055);
+    filter: blur(0px);
+    opacity: 1.5;
+    box-shadow: 0 8px 10px 0px rgb(0 0 0 / 10%);
+}
+.reddit-text{
+    text-align: justify;
+    font-size: 18;
+    font-family: didot;
+    margin: 15;
+
+}
+.row{
+    font-size: 14;
+    bottom: 0;
+    width: 100%;
+    position: relative;
+    margin-right: 0px;
+    margin-left: 0px;
+    text-align: center;
+}
+
+.category{
+    display: flex;
+    /* word-wrap: break-word; */
+    align-items: center;
+    justify-content: center;
+    font-family: initial;
+    font-size: medium;
+    font-weight: bold;
+}
+
+#category{
+    width: 80%;
+    word-wrap:break-word;
+    color: rgb(248, 241, 211);
+}
+
+.spacing{
+    display: flex;
+    line-height: 10;
+}
